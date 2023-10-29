@@ -16,7 +16,7 @@ def preprocess_data(data_dir='D:\\program\\potholes-detection\\dataset', img_wid
         zoom_range=0.2,
         horizontal_flip=True,
         fill_mode='nearest',
-        validation_split=0.2)  # 为验证集分配20%的数据
+        validation_split=0.1)  # 为验证集分配10%的数据
 
     # 数据分割
     train_generator = datagen.flow_from_directory(

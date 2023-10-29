@@ -45,7 +45,7 @@ model.fit(
     epochs=epochs)
 
 # 保存模型
-model.save('pothole_classifier_0.2.h5')
+model.save('pothole_classifier_0.1.h5')
 
 # 验证模型
 loss, accuracy = model.evaluate(validation_generator, steps=np.ceil(validation_generator.samples / batch_size))
