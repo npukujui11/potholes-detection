@@ -1,0 +1,12 @@
+train: D:/program/potholes-detection/dataset/no303.v1i.yolov5pytorch/train/images
+val: D:/program/potholes-detection/dataset/no303.v1i.yolov5pytorch/valid/images
+
+nc: 29
+names: ['brick', 'car', 'cloud', 'forrest', 'house', 'indicator', 'lake', 'language', 'light', 'motocar', 'mountain', 'palisade', 'parterre', 'person', 'pipe', 'pothole', 'pram', 'reflector', 'roadcone', 'shadow', 'shoes', 'sign', 'skate', 'spade', 'streetPlate', 'trashcan', 'undergroundlamp', 'watersign', 'well']
+
+roboflow:
+  workspace: yang-8zybl
+  project: no303
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/yang-8zybl/no303/dataset/1
