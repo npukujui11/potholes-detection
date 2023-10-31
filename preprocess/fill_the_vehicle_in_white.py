@@ -9,7 +9,7 @@ model.eval()
 
 # 图像目录
 image_dir = 'D:\\program\\potholes-detection\\dataset\\alldata'
-output_dir = 'D:\\program\\potholes-detection\\dataset\\pothole_filled'
+output_dir = 'D:\\program\\potholes-detection\\dataset\\alldata_filled'
 os.makedirs(output_dir, exist_ok=True)
 
 # 遍历图像目录
