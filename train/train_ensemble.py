@@ -66,6 +66,9 @@ for clf_name, clf in ensemble.named_estimators_.items():
 # 保存集成模型
 dump(ensemble, 'pothole_classifier_ensemble.joblib')
 
+# 从文件加载模型
+# loaded_ensemble = load(model_filename)
+
 # 验证模型
 y_pred = ensemble.predict(X_val)
 accuracy = accuracy_score(y_val, y_pred)
