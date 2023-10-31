@@ -1,3 +1,5 @@
+# HOG (Histogram of Oriented Gradients)
+# HOG是一个用于描述图像局部的形状信息和纹理信息的特征描述符。它基于图像的梯度方向来构建直方图。
 import os
 import matplotlib.pyplot as plt
 import cv2
