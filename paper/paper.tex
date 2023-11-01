@@ -28,12 +28,13 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{tocloft}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead{}
 \fancyfoot{}
 \fancyhead[R]{\small Page \thepage\ of \pageref*{LastPage}}
-\fancyhead[L]{\small Report}
+
 
 \usepackage{listings}                 % 导入代码块
 \usepackage{xcolor}
@@ -68,11 +69,34 @@
 
 \begin{document}
 	
+	\begin{table}[!htbp]
+		\centering
+		\small
+		%\resizebox{\textwidth}{!}{ %按照宽度调整调整表格大小
+			\begin{tabular}{|>{\centering\arraybackslash}m{2.6cm}|c|}
+				
+				\hline
+				
+				队伍编号 & MCB2303548 \\
+				
+				\hline
+				
+				赛道 & A  \\
+				
+				\hline
+				
+			\end{tabular}
+
+	\end{table}
 	
-	\title{\songti \zihao{4}10月工作汇报}
-	\author{\textrm{Ku Jui}}
-	\date{\textrm{October 2023}}
-	\maketitle
+	\begin{center}
+		\color{gray}\rule{0.8\linewidth}{1pt}
+	\end{center}
+	
+	\begin{center}
+		{\Large \bfseries \songti 基于纹理和边缘特征图的道路坑洞分类策略}\\[1em] % 标题
+
+	\end{center}
 	
 	\renewcommand{\figurename}{图} % 可以重新定义abstract，因为ctex会覆盖thebibliography
 	% 	\begin{abstract}
@@ -99,16 +123,13 @@
 		
 		% 添加关键词
 		\noindent
-		\textbf{关键词：} 关键词1, 关键词2, 关键词3
+		\textbf{关键词：} 坑洞；道路损坏；边缘检测；
 	\end{abstract}
 	
 	
 	% 从新的一页开始目录
 	\clearpage
 	\tableofcontents
-	
-	
-	
 	
 	
 	
