@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dense, Multiply, Flatten, Softmax, Dropout, UpSampling2D, Add
+from tensorflow.keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dense, Multiply, Flatten, Softmax, Dropout
 from tensorflow.keras.models import Model
 from tensorflow.keras.applications import InceptionResNetV2
 from sklearn.utils.class_weight import compute_class_weight
@@ -54,25 +54,6 @@ split = int(0.9 * len(X))
 X_train, X_val = X[:split], X[split:]
 y_train, y_val = y[:split], y[split:]
 
-# FPN模块
-def FPN(features):
-    # 假设features是一个列表，其中包含灰度图、边缘图、HOG图和LBP图的特征
-    P5 = Conv2D(256, kernel_size=(1, 1), padding='same')(features[3])
-
-    up_P5 = UpSampling2D(size=(2, 2))(P5)
-    up_P5 = Conv2D(256, kernel_size=(3, 3), padding='same')(up_P5)  # 调整尺寸
-    P4 = Add()([up_P5, Conv2D(256, kernel_size=(1, 1), padding='same')(features[2])])
-
-    up_P4 = UpSampling2D(size=(2, 2))(P4)
-    up_P4 = Conv2D(256, kernel_size=(3, 3), padding='same')(up_P4)  # 调整尺寸
-    P3 = Add()([up_P4, Conv2D(256, kernel_size=(1, 1), padding='same')(features[1])])
-
-    up_P3 = UpSampling2D(size=(2, 2))(P3)
-    up_P3 = Conv2D(256, kernel_size=(3, 3), padding='same')(up_P3)  # 调整尺寸
-    P2 = Add()([up_P3, Conv2D(256, kernel_size=(1, 1), padding='same')(features[0])])
-
-    return P2
-
 # 注意力模块
 def attention_module(input_tensor, channels=4):
     # 使用一个小型的卷积网络计算注意力权重
@@ -95,10 +76,7 @@ def create_attention_model(input_shape):
     input_tensor = Input(shape=input_shape)
     attention_output = attention_module(input_tensor)
 
-    # 使用FPN融合特征
-    fpn_features = FPN([attention_output[:, :, :, i:i+1] for i in range(4)])
-
-    base_model = InceptionResNetV2(include_top=False, weights=None, input_tensor=fpn_features)
+    base_model = InceptionResNetV2(include_top=False, weights=None, input_tensor=attention_output)
     base_features = base_model.output
 
     gap = GlobalAveragePooling2D()(base_features)
