@@ -1,13 +1,14 @@
 import os
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dense, Multiply, Flatten, Softmax, Dropout
+from tensorflow.keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dense, Multiply, Flatten, Softmax, Dropout, Reshape
 from tensorflow.keras.models import Model
 from tensorflow.keras.applications import InceptionResNetV2
 from sklearn.utils.class_weight import compute_class_weight
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from sklearn.utils import shuffle
+from tensorflow.keras import backend as K
 
 # 数据加载和预处理
 def load_data(data_dir, feature_dirs):
@@ -41,7 +42,7 @@ def load_data(data_dir, feature_dirs):
 
     return np.array(images), np.array(labels)
 
-data_dir = "D:\\program\\potholes-detection\\dataset\\alldata"
+data_dir = "/dataset/alldata_sz640"
 feature_dirs = ["D:\\program\\potholes-detection\\dataset\\alldata_filled_edge",
                 "D:\\program\\potholes-detection\\dataset\\alldata_filled_hog",
                 "D:\\program\\potholes-detection\\dataset\\alldata_filled_lbp"]
@@ -55,26 +56,22 @@ X_train, X_val = X[:split], X[split:]
 y_train, y_val = y[:split], y[split:]
 
 # 注意力模块
-def attention_module(input_tensor, channels=4):
-    # 使用一个小型的卷积网络计算注意力权重
-    attention_probs = Conv2D(channels, kernel_size=(1, 1), activation='softmax', padding='same',
-                             name='attention_probs')(input_tensor)
+def SE_block(input_tensor, ratio=16):
+    channel_axis = -1
+    channels = K.int_shape(input_tensor)[channel_axis]
+    se_shape = (1, 1, channels)
 
-    # 为边缘图（第二个通道）分配更高的初始权重
-    initial_bias = tf.constant_initializer([-2., 2., -2., -2.])  # 偏向于第二个通道，即边缘图
-    attention_probs_bias = Conv2D(channels, kernel_size=(1, 1), kernel_initializer='zeros',
-                                  bias_initializer=initial_bias, activation='softmax', padding='same',
-                                  name='attention_probs_bias')(input_tensor)
+    se = GlobalAveragePooling2D()(input_tensor)
+    se = Reshape(se_shape)(se)
+    se = Dense(channels // ratio, activation='relu', kernel_initializer='he_normal', use_bias=False)(se)
+    se = Dense(channels, activation='sigmoid', kernel_initializer='he_normal', use_bias=False)(se)
 
-    # 将注意力权重与输入张量相乘
-    attention_mul = Multiply(name='attention_multiply')([input_tensor, attention_probs_bias])
-
-    return attention_mul
+    return Multiply()([input_tensor, se])
 
 # 模型定义
 def create_attention_model(input_shape):
     input_tensor = Input(shape=input_shape)
-    attention_output = attention_module(input_tensor)
+    attention_output = SE_block(input_tensor)
 
     base_model = InceptionResNetV2(include_top=False, weights=None, input_tensor=attention_output)
     base_features = base_model.output
@@ -90,6 +87,7 @@ def create_attention_model(input_shape):
 input_shape = (640, 640, 4)
 model = create_attention_model(input_shape)
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
 
 # 使用数据增强和类权重处理数据不平衡问题
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -107,10 +105,13 @@ class_weights = compute_class_weight('balanced', classes=np.unique(y_integers), 
 class_weights = dict(enumerate(class_weights))
 
 # 训练模型
-model.fit(datagen.flow(X_train, y_train, batch_size=16), validation_data=(X_val, y_val), epochs=40, class_weight=class_weights)
+model.fit(datagen.flow(X_train, y_train, batch_size=16),
+          validation_data=(X_val, y_val),
+          epochs=20,
+          class_weight=class_weights)
 
 # 保存模型
-model.save('inception_resnet_v2_fused_features.h5')
+model.save('inception_resnet_v2_fused_features01.h5')
 
 # 验证模型
 loss, accuracy = model.evaluate(X_val, y_val)
