@@ -23,8 +23,8 @@ def hed_edge_detection(image_path, model_path, config_path):
     return hed
 
 # 文件夹路径
-input_folder = 'D:\\program\\potholes-detection\\dataset\\alldata_filled'  # 图像文件夹路径
-output_folder = 'D:\\program\\potholes-detection\\dataset\\alldata_filled_edge'  # 输出边缘图的文件夹路径
+input_folder = 'D:\\program\\potholes-detection\\dataset\\alldata_sz640_filled'  # 图像文件夹路径
+output_folder = 'D:\\program\\potholes-detection\\dataset\\alldata_sz640_filled_edge'  # 输出边缘图的文件夹路径
 os.makedirs(output_folder, exist_ok=True)
 
 model_path = 'D:\\program\\potholes-detection\\edgedetect\\hed_pretrained_bsds.caffemodel'  # 替换为您下载的模型权重路径

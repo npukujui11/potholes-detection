@@ -2,8 +2,8 @@ import os
 from PIL import Image
 
 # 源目录和目标目录
-source_dir = "/dataset/alldata_sz640"
-target_dir = "D:\\program\\potholes-detection\\dataset\\alldata_gray"
+source_dir = "D:\\program\\potholes-detection\\dataset\\testdata\\testdata_sz640"
+target_dir = "D:\\program\\potholes-detection\\dataset\\testdata\\testdata_sz640_gray"
 
 # 如果目标目录不存在，则创建它
 if not os.path.exists(target_dir):

@@ -20,8 +20,8 @@ def calculate_hog_image(image_path):
 
 
 # 输入和输出文件夹路径
-input_folder = 'D:\\program\\potholes-detection\\dataset\\alldata_filled'  # 输入图像文件夹路径
-output_folder = 'D:\\program\\potholes-detection\\dataset\\alldata_filled_hog'  # 保存HOG图像的文件夹路径
+input_folder = 'D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise'  # 输入图像文件夹路径
+output_folder = 'D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise_hog'  # 保存HOG图像的文件夹路径
 os.makedirs(output_folder, exist_ok=True)
 
 # 遍历输入文件夹中的所有图像
