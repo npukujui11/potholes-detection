@@ -42,10 +42,10 @@ def load_data(data_dir, feature_dirs):
 
     return np.array(images), np.array(labels)
 
-data_dir = "/dataset/alldata_sz640"
-feature_dirs = ["D:\\program\\potholes-detection\\dataset\\alldata_filled_edge",
-                "D:\\program\\potholes-detection\\dataset\\alldata_filled_hog",
-                "D:\\program\\potholes-detection\\dataset\\alldata_filled_lbp"]
+data_dir = "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640"
+feature_dirs = ["D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_edge",
+                "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_hog",
+                "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_lbp"]
 
 X, y = load_data(data_dir, feature_dirs)
 X, y = shuffle(X, y, random_state=42)  # 打乱数据
@@ -105,7 +105,7 @@ class_weights = compute_class_weight('balanced', classes=np.unique(y_integers), 
 class_weights = dict(enumerate(class_weights))
 
 # 训练模型
-model.fit(datagen.flow(X_train, y_train, batch_size=16),
+model.fit(datagen.flow(X_train, y_train, batch_size=8),
           validation_data=(X_val, y_val),
           epochs=20,
           class_weight=class_weights)
