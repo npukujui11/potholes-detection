@@ -8,7 +8,7 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path)
 model.eval()
 
 # 图像目录
-image_dir = 'D:\\program\\potholes-detection\\dataset\\alldata'
+image_dir = '/dataset/alldata_sz640'
 output_dir = 'D:\\program\\potholes-detection\\dataset\\alldata_filled'
 os.makedirs(output_dir, exist_ok=True)
 
