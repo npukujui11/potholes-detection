@@ -38,10 +38,10 @@ def load_data(data_dir, feature_dirs):
     return np.array(images), np.array(labels)
 
 
-data_dir = "/dataset/alldata_sz640"
-feature_dirs = ["D:\\program\\potholes-detection\\dataset\\alldata_filled_edge",
-                "D:\\program\\potholes-detection\\dataset\\alldata_filled_hog",
-                "D:\\program\\potholes-detection\\dataset\\alldata_filled_lbp"]
+data_dir = "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640"
+feature_dirs = ["D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_edge",
+                "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_hog",
+                "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_lbp"]
 X, y = load_data(data_dir, feature_dirs)
 X, y = shuffle(X, y, random_state=42)
 
