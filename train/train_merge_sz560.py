@@ -24,14 +24,14 @@ def load_data(data_dir, feature_dirs):
 
         # 加载原始图像
         img_path = os.path.join(data_dir, filename)
-        img = load_img(img_path, color_mode="grayscale", target_size=(640, 640))
+        img = load_img(img_path, color_mode="grayscale", target_size=(560, 560))
         img = img_to_array(img)
 
         # 加载特征图
         features = [img]
         for feature_dir in feature_dirs:
             feature_path = os.path.join(feature_dir, filename)
-            feature_img = load_img(feature_path, color_mode="grayscale", target_size=(640, 640))
+            feature_img = load_img(feature_path, color_mode="grayscale", target_size=(560, 560))
             feature_img = img_to_array(feature_img)
             features.append(feature_img)
 
@@ -42,10 +42,10 @@ def load_data(data_dir, feature_dirs):
 
     return np.array(images), np.array(labels)
 
-data_dir = "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640"
-feature_dirs = ["D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_denoise_edge",
-                "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_denoise_hog",
-                "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_denoise_lbp"]
+data_dir = "D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560"
+feature_dirs = ["D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise_edge",
+                "D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise_hog",
+                "D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise_lbp"]
 
 X, y = load_data(data_dir, feature_dirs)
 X, y = shuffle(X, y, random_state=42)  # 打乱数据
@@ -84,7 +84,7 @@ def create_attention_model(input_shape):
     model = Model(inputs=input_tensor, outputs=output)
     return model
 
-input_shape = (640, 640, 4)
+input_shape = (560, 560, 4)
 model = create_attention_model(input_shape)
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
@@ -111,7 +111,7 @@ model.fit(datagen.flow(X_train, y_train, batch_size=8),
           class_weight=class_weights)
 
 # 保存模型
-model.save('inception_resnet_v2_fused_features_denoise_sz640.h5')
+model.save('inception_resnet_v2_fused_features_denoise_sz560.h5')
 
 # 验证模型
 loss, accuracy = model.evaluate(X_val, y_val)

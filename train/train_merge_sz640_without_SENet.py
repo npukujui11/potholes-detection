@@ -71,9 +71,9 @@ def SE_block(input_tensor, ratio=16):
 # 模型定义
 def create_attention_model(input_shape):
     input_tensor = Input(shape=input_shape)
-    attention_output = SE_block(input_tensor)
+    # attention_output = SE_block(input_tensor)
 
-    base_model = InceptionResNetV2(include_top=False, weights=None, input_tensor=attention_output)
+    base_model = InceptionResNetV2(include_top=False, weights=None, input_tensor=input_tensor)
     base_features = base_model.output
 
     gap = GlobalAveragePooling2D()(base_features)
