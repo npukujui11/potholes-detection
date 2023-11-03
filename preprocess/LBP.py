@@ -20,8 +20,8 @@ def calculate_lbp_image(image_path):
     return lbp_image
 
 # 输入和输出文件夹路径
-input_folder = 'D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise'  # 替换为您的输入图像文件夹路径
-output_folder = 'D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise_lbp'  # 替换为您希望保存LBP图像的文件夹路径
+input_folder = 'D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_denoise'  # 替换为您的输入图像文件夹路径
+output_folder = 'D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_denoise_lbp'  # 替换为您希望保存LBP图像的文件夹路径
 os.makedirs(output_folder, exist_ok=True)
 
 # 遍历输入文件夹中的所有图像

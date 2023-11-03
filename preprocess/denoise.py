@@ -22,6 +22,6 @@ def denoise_images(input_folder, output_folder):
         cv2.imwrite(output_path, dst)
 
 # 使用方法
-input_folder = "D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled"
-output_folder = "D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise"
+input_folder = "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640"
+output_folder = "D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_denoise"
 denoise_images(input_folder, output_folder)

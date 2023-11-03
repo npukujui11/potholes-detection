@@ -20,8 +20,8 @@ def rcf_edge_detection(image_path, model_path, config_path):
     return rcf
 
 # 文件夹路径
-input_folder = 'D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise'  # 图像文件夹路径
-output_folder = 'D:\\program\\potholes-detection\\dataset\\sz560\\alldata_sz560_filled_denoise_edge'  # 输出边缘图的文件夹路径
+input_folder = 'D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_denoise'  # 图像文件夹路径
+output_folder = 'D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_denoise_edge'  # 输出边缘图的文件夹路径
 os.makedirs(output_folder, exist_ok=True)
 
 model_path = 'D:\\program\\potholes-detection\\edgedetect\\rcf_resnet101_bsds_iter_40000.caffemodel'  # 替换为您下载的RCF模型权重路径
