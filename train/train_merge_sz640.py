@@ -87,7 +87,7 @@ class SEBlock(Layer):
         return config
 
 # 模型定义
-def create_attention_model(input_shape, dropout_rate, l1_reg, l2_reg):
+def create_attention_model(input_shape):
     input_tensor = Input(shape=input_shape)
     attention_output = SEBlock()(input_tensor)
 
@@ -95,24 +95,13 @@ def create_attention_model(input_shape, dropout_rate, l1_reg, l2_reg):
     base_features = base_model.output
 
     gap = GlobalAveragePooling2D()(base_features)
-    fc1 = Dense(128, activation='relu', kernel_regularizer=l1_l2(l1=l1_reg, l2=l2_reg))(gap)
-    dropout = Dropout(dropout_rate)(fc1)
+    fc1 = Dense(128, activation='relu', kernel_regularizer=l1_l2(0.01,0.02))(gap)  # 添加L2正则化
+    dropout = Dropout(0.3)(fc1)  # 增加Dropout比率
     output = Dense(2, activation='softmax')(dropout)
 
     model = Model(inputs=input_tensor, outputs=output)
     return model
 
-# 设置不同的正则化参数
-regularization_params = [
-    {'dropout_rate': 0.3, 'l1_reg': 0.0, 'l2_reg': 0.01},
-    {'dropout_rate': 0.5, 'l1_reg': 0.0, 'l2_reg': 0.01},
-    {'dropout_rate': 0.3, 'l1_reg': 0.01, 'l2_reg': 0.0},
-    {'dropout_rate': 0.5, 'l1_reg': 0.01, 'l2_reg': 0.0},
-    {'dropout_rate': 0.5, 'l1_reg': 0.01, 'l2_reg': 0.01},
-    {'dropout_rate': 0.5, 'l1_reg': 1e-3, 'l2_reg': 1e-3},
-    {'dropout_rate': 0.3, 'l1_reg': 0.0, 'l2_reg': 1e-3},
-    {'dropout_rate': 0.3, 'l1_reg': 1e-3, 'l2_reg': 0},
-]
 
 # 训练模型并记录历史
 history_data = {}
@@ -130,30 +119,35 @@ class_weights = dict(enumerate(class_weights))
 
 input_shape = (640, 640, 4)
 
-for params in regularization_params:
-    print(f"Training with params: {params}")
-    model = create_attention_model(input_shape, **params)
-    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-    history = model.fit(
+model = create_attention_model(input_shape)
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(
         datagen.flow(X_train, y_train, batch_size=8),
         validation_data=(X_val, y_val),
         epochs=40,
-        class_weight=class_weights
-    )
-    history_key = f"dropout_{params['dropout_rate']}_l1_{params['l1_reg']}_l2_{params['l2_reg']}"
-    history_data[history_key] = history.history
-    print(f"Finished training {history_key}")
+        class_weight=class_weights)
 
-# 绘制和保存准确率曲线
-for name, history in history_data.items():
-    print(f"Plotting accuracy curve for {name}")
-    plt.figure(figsize=(10, 4))
-    plt.plot(history['accuracy'], label='Train Accuracy')
-    plt.plot(history['val_accuracy'], label='Validation Accuracy')
-    plt.title(f"Accuracy Over Epochs ({name})")
-    plt.legend()
-    plt.xlabel('Epoch')
-    plt.ylabel('Accuracy')
-    plt.savefig(f"accuracy_curve_{name}.png")
-    plt.close()  # 关闭图形，避免重叠
-    print(f"Saved accuracy curve as accuracy_curve_{name}.png")
+# 绘制训练准确率和验证准确率曲线
+plt.figure(figsize=(10, 4))
+
+# 绘制训练准确率和验证准确率
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+plt.title('Accuracy Over Epochs')
+plt.legend()
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+
+
+plt.subplot(1,2,2)
+plt.plot(history.history['loss'], label='Train Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Loss Over Epochs')
+plt.legend()
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+
+plt.tight_layout()
+plt.show()

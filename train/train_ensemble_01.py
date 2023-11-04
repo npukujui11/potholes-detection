@@ -7,33 +7,15 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.utils import shuffle
+from sklearn.utils import shuffle, resample
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, jaccard_score
 from sklearn.ensemble import VotingClassifier
 import matplotlib.pyplot as plt
-from skimage.transform import rotate, AffineTransform, warp
-from skimage.util import random_noise
-from skimage.filters import gaussian
-import random
+from skimage.transform import rotate
+from scipy.ndimage import rotate
 
-# 函数：应用数据增强
-def augment_image(image):
-    # 随机旋转
-    if random.random() > 0.5:
-        image = rotate(image, angle=random.uniform(-10, 10), mode='edge')
-    # 随机应用噪声
-    if random.random() > 0.5:
-        image = random_noise(image)
-    # 随机模糊
-    if random.random() > 0.5:
-        image = gaussian(image, sigma=random.uniform(0.1, 1.0))
-    # 随机仿射变换
-    if random.random() > 0.5:
-        transform = AffineTransform(translation=(random.uniform(-5, 5), random.uniform(-5, 5)))
-        image = warp(image, transform, mode='edge')
-    return image
 # 函数：加载数据和标签
-def load_data_and_labels(feature_path, class_label, augment=False, num_augmented=0):
+def load_data_and_labels(feature_path, class_label):
     images = []
     labels = []
     for filename in os.listdir(feature_path):
@@ -42,11 +24,6 @@ def load_data_and_labels(feature_path, class_label, augment=False, num_augmented
             img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
             images.append(img.flatten())
             labels.append(1 if class_label == 'pothole' else 0)
-            if augment:
-                for _ in range(num_augmented):
-                    img_augmented = augment_image(img)
-                    images.append(img_augmented.flatten())
-                    labels.append(1 if class_label == 'pothole' else 0)
     return images, labels
 
 # 函数：训练和评估模型
@@ -55,10 +32,10 @@ def train_and_evaluate(X_train, y_train, X_test, y_test, classifier, classifier_
     classifier.fit(X_train, y_train)
     y_pred = classifier.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred)
-    recall = recall_score(y_test, y_pred)
-    f1 = f1_score(y_test, y_pred)
-    jaccard = jaccard_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred, average='macro')
+    recall = recall_score(y_test, y_pred, average='macro')
+    f1 = f1_score(y_test, y_pred, average='macro')
+    jaccard = jaccard_score(y_test, y_pred, average='macro')
     print(f"{classifier_name} - Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1-Score: {f1}, Jaccard's Index: {jaccard}")
     return accuracy, precision, recall, f1, jaccard
 
@@ -74,7 +51,7 @@ def plot_results(results):
     x = np.arange(len(labels))
     width = 0.15
 
-    fig, ax = plt.subplots(figsize=(15,6))
+    fig, ax = plt.subplots(figsize=(20,6))
     rects1 = ax.bar(x - width*2, accuracy, width, label='Accuracy')
     rects2 = ax.bar(x - width, precision, width, label='Precision')
     rects3 = ax.bar(x, recall, width, label='Recall')
@@ -93,22 +70,22 @@ def plot_results(results):
 feature_types = ['hog', 'lbp', 'edge']
 classifiers = {
     'KNN': KNeighborsClassifier(),
-    'SVM': SVC(probability=True, random_state=42),
+    'SVM': SVC(probability=True),
     'RF': RandomForestClassifier(),
     'MLP': MLPClassifier(max_iter=1000)
 }
 results = {}
 
 for feature_type in feature_types:
-    feature_path = f"D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_{feature_type}"
-    X_pothole, y_pothole = load_data_and_labels(feature_path, 'pothole', augment=True, num_augmented=20)
-    X_normal, y_normal = load_data_and_labels(feature_path, 'normal', augment=True, num_augmented=20)
+    feature_path = f"D:\\program\\potholes-detection\\dataset\\sz640\\alldata_sz640_filled_{feature_type}_gen"
+    X_pothole, y_pothole = load_data_and_labels(feature_path, 'pothole')
+    X_normal, y_normal = load_data_and_labels(feature_path, 'normal')
     X = X_pothole + X_normal
     y = y_pothole + y_normal
 
     X, y = shuffle(X, y, random_state=42)
     # 分割数据集
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
 
     best_score = 0
     best_classifier_name = ''
