@@ -2,52 +2,45 @@ This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: unsrt.bst
-I couldn't open database file reference.bib
----line 145 of file paper.aux
- : \bibdata{reference
- :                   }
-I'm skipping whatever remains of this command
-I found no \citation commands---while reading file paper.aux
-I found no database files---while reading file paper.aux
-You've used 0 entries,
+Database file #1: reference.bib
+You've used 11 entries,
             1791 wiz_defined-function locations,
-            445 strings with 3517 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
+            519 strings with 5686 characters,
+and the built_in function-call counts, 2579 in all, are:
+= -- 202
+> -- 156
 < -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 56
+- -- 45
+* -- 216
+:= -- 449
+add.period$ -- 33
+call.type$ -- 11
+change.case$ -- 11
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 11
+duplicate$ -- 96
+empty$ -- 232
+format.name$ -- 45
+if$ -- 552
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 11
+missing$ -- 11
+newline$ -- 58
+num.names$ -- 11
+pop$ -- 11
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1
+skip$ -- 36
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 159
+swap$ -- 11
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 3 error messages)
+while$ -- 19
+width$ -- 13
+write$ -- 123

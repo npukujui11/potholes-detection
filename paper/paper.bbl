@@ -1,3 +1,71 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{DONG2022104914}
+Xudong Dong, Shuai Yan, and Chaoqun Duan.
+\newblock A lightweight vehicles detection network model based on yolov5.
+\newblock {\em Engineering Applications of Artificial Intelligence},
+  113:104914, 2022.
+
+\bibitem{rs13020200}
+S.~N. Shivappriya, M.~Jasmine~Pemeena Priyadarsini, Andrzej Stateczny,
+  C.~Puttamadappa, and B.~D. Parameshachari.
+\newblock Cascade object detection and remote sensing object detection method
+  based on trainable activation function.
+\newblock {\em Remote Sensing}, 13(2), 2021.
+
+\bibitem{8516362}
+Yun Liu, Ming-Ming Cheng, Xiaowei Hu, Jia-Wang Bian, Le~Zhang, Xiang Bai, and
+  Jinhui Tang.
+\newblock Richer convolutional features for edge detection.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  41(8):1939--1946, 2019.
+
+\bibitem{rs10091496}
+Tingting Lu, Dongping Ming, Xiangguo Lin, Zhaoli Hong, Xueding Bai, and
+  Ju~Fang.
+\newblock Detecting building edges from high spatial resolution remote sensing
+  imagery using richer convolution features network.
+\newblock {\em Remote Sensing}, 10(9), 2018.
+
+\bibitem{VALKENBORG2023754}
+Dirk Valkenborg, Axel-Jan Rousseau, Melvin Geubbelmans, and Tomasz Burzykowski.
+\newblock Support vector machines.
+\newblock {\em American Journal of Orthodontics and Dentofacial Orthopedics},
+  164(5):754--757, 2023.
+
+\bibitem{TAO20221}
+Peng Tao, Jie Cheng, and Luonan Chen.
+\newblock Brain-inspired chaotic backpropagation for mlp.
+\newblock {\em Neural Networks}, 155:1--13, 2022.
+
+\bibitem{8314460}
+Zhenfeng Shao and Jiajun Cai.
+\newblock Remote sensing image fusion with deep convolutional neural network.
+\newblock {\em IEEE Journal of Selected Topics in Applied Earth Observations
+  and Remote Sensing}, 11(5):1656--1669, 2018.
+
+\bibitem{rs15112728}
+Junsuo Qu, Zongbing Tang, Le~Zhang, Yanghai Zhang, and Zhenguo Zhang.
+\newblock Remote sensing small object detection network based on attention
+  mechanism and multi-scale feature fusion.
+\newblock {\em Remote Sensing}, 15(11), 2023.
+
+\bibitem{NGO20221}
+Giang Ngo, Rodney Beard, and Rohitash Chandra.
+\newblock Evolutionary bagging for ensemble learning.
+\newblock {\em Neurocomputing}, 510:1--14, 2022.
+
+\bibitem{9266095}
+Wenbo Qiu, Jianghan Zhu, Guohua Wu, Huangke Chen, Witold Pedrycz, and
+  Ponnuthurai~Nagaratnam Suganthan.
+\newblock Ensemble many-objective optimization algorithm based on voting
+  mechanism.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics: Systems},
+  52(3):1716--1730, 2022.
+
+\bibitem{8496892}
+Rafael~C. Gonzalez.
+\newblock Deep convolutional neural networks [lecture notes].
+\newblock {\em IEEE Signal Processing Magazine}, 35(6):79--87, 2018.
 
 \end{thebibliography}

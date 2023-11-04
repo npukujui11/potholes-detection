@@ -29,142 +29,186 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}问题三的分析}{6}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}模型假设与符号说明}{6}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}模型假设}{6}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}符号说明}{6}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}模型的构建}{6}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}数据预处理}{6}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}训练集数据增强预处理}{6}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}使用灰度降维}{6}{subsubsection.4.1.2}\protected@file@percent }
-\newlabel{fig: Red Channel Histogram}{{2a}{7}{Red Channel\relax }{figure.caption.3}{}}
-\newlabel{sub@fig: Red Channel Histogram}{{a}{7}{Red Channel\relax }{figure.caption.3}{}}
-\newlabel{fig: Green Channel Histogram}{{2b}{7}{Green Channel\relax }{figure.caption.3}{}}
-\newlabel{sub@fig: Green Channel Histogram}{{b}{7}{Green Channel\relax }{figure.caption.3}{}}
-\newlabel{fig: Blue Channel Histogram}{{2c}{7}{Blue Channel\relax }{figure.caption.3}{}}
-\newlabel{sub@fig: Blue Channel Histogram}{{c}{7}{Blue Channel\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces   不同颜色通道在 Pothole 和 Normal 的强度。原始数据集是不平衡数据，所以 Normal 类的单通道累积强度会明显高于 Pothole 类，因此我们计算每个分类下的平均通道强度。 \relax }}{7}{figure.caption.3}\protected@file@percent }
-\newlabel{fig: Color Channel}{{2}{7}{不同颜色通道在 Pothole 和 Normal 的强度。原始数据集是不平衡数据，所以 Normal 类的单通道累积强度会明显高于 Pothole 类，因此我们计算每个分类下的平均通道强度。 \relax }{figure.caption.3}{}}
+\citation{DONG2022104914}
+\citation{rs13020200}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces   数据预处理过程。 \relax }}{7}{figure.caption.3}\protected@file@percent }
+\newlabel{fig: ppreprocess}{{2}{7}{数据预处理过程。 \relax }{figure.caption.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}使用目标检测的图像预处理}{7}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}去噪}{7}{subsubsection.4.1.4}\protected@file@percent }
-\newlabel{fig: LBP noise}{{3a}{8}{LBP with noise\relax }{figure.caption.4}{}}
-\newlabel{sub@fig: LBP noise}{{a}{8}{LBP with noise\relax }{figure.caption.4}{}}
-\newlabel{fig: HOG noise}{{3b}{8}{HOG with noise\relax }{figure.caption.4}{}}
-\newlabel{sub@fig: HOG noise}{{b}{8}{HOG with noise\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces   LBP 图都会受到显著的噪声影响，HOG 图则相对不那么明显。 \relax }}{8}{figure.caption.4}\protected@file@percent }
-\newlabel{fig: HOG and LBP noise}{{3}{8}{LBP 图都会受到显著的噪声影响，HOG 图则相对不那么明显。 \relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}特征提取}{8}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}边缘特征提取}{8}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}HOG 和 LBP 的特征提取}{8}{subsubsection.4.2.2}\protected@file@percent }
-\newlabel{fig: normal66}{{4a}{10}{normal66\relax }{figure.caption.5}{}}
-\newlabel{sub@fig: normal66}{{a}{10}{normal66\relax }{figure.caption.5}{}}
-\newlabel{fig: normal66 HOG}{{\caption@xref {fig: normal66 HOG}{ on input line 363}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal66 HOG}{{a}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal66 LBP}{{\caption@xref {fig: normal66 LBP}{ on input line 369}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal66 LBP}{{a}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal66 Edge}{{\caption@xref {fig: normal66 Edge}{ on input line 375}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal66 Edge}{{a}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal200}{{4b}{10}{normal200\relax }{figure.caption.5}{}}
-\newlabel{sub@fig: normal200}{{b}{10}{normal200\relax }{figure.caption.5}{}}
-\newlabel{fig: normal200 HOG}{{\caption@xref {fig: normal200 HOG}{ on input line 388}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal200 HOG}{{b}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal200 LBP}{{\caption@xref {fig: normal200 LBP}{ on input line 394}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal200 LBP}{{b}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal200 Edge}{{\caption@xref {fig: normal200 Edge}{ on input line 400}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal200 Edge}{{b}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal300}{{4c}{10}{normal300\relax }{figure.caption.5}{}}
-\newlabel{sub@fig: normal300}{{c}{10}{normal300\relax }{figure.caption.5}{}}
-\newlabel{fig: normal300 HOG}{{\caption@xref {fig: normal300 HOG}{ on input line 413}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal300 HOG}{{c}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal300 LBP}{{\caption@xref {fig: normal300 LBP}{ on input line 419}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal300 LBP}{{c}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: normal300 Edge}{{\caption@xref {fig: normal300 Edge}{ on input line 425}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: normal300 Edge}{{c}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: potholes8}{{4d}{10}{potholes8\relax }{figure.caption.5}{}}
-\newlabel{sub@fig: potholes8}{{d}{10}{potholes8\relax }{figure.caption.5}{}}
-\newlabel{fig: potholes8 HOG}{{\caption@xref {fig: potholes8 HOG}{ on input line 438}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: potholes8 HOG}{{d}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: potholes8 LBP}{{\caption@xref {fig: potholes8 LBP}{ on input line 444}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: potholes8 LBP}{{d}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: potholes8 Edge}{{\caption@xref {fig: potholes8 Edge}{ on input line 450}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: potholes8 Edge}{{d}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: potholes22}{{4e}{10}{potholes22\relax }{figure.caption.5}{}}
-\newlabel{sub@fig: potholes22}{{e}{10}{potholes22\relax }{figure.caption.5}{}}
-\newlabel{fig: potholes22 HOG}{{\caption@xref {fig: potholes22 HOG}{ on input line 463}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: potholes22 HOG}{{e}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: potholes22 LBP}{{\caption@xref {fig: potholes22 LBP}{ on input line 469}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: potholes22 LBP}{{e}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{fig: potholes22 Edge}{{\caption@xref {fig: potholes22 Edge}{ on input line 475}}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\newlabel{sub@fig: potholes22 Edge}{{e}{10}{HOG 和 LBP 的特征提取}{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces   不同类别图片对应的 HOG, LBP, Edge 特征图。 \relax }}{10}{figure.caption.5}\protected@file@percent }
-\newlabel{fig: LBP and HOG}{{4}{10}{不同类别图片对应的 HOG, LBP, Edge 特征图。 \relax }{figure.caption.5}{}}
-\newlabel{fig: normal93}{{5a}{11}{normal93\relax }{figure.caption.6}{}}
-\newlabel{sub@fig: normal93}{{a}{11}{normal93\relax }{figure.caption.6}{}}
-\newlabel{fig: normal93 HOG}{{\caption@xref {fig: normal93 HOG}{ on input line 503}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: normal93 HOG}{{a}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: normal93 LBP}{{\caption@xref {fig: normal93 LBP}{ on input line 509}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: normal93 LBP}{{a}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: normal93 Edge}{{\caption@xref {fig: normal93 Edge}{ on input line 515}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: normal93 Edge}{{a}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: normal273}{{5b}{11}{normal273\relax }{figure.caption.6}{}}
-\newlabel{sub@fig: normal273}{{b}{11}{normal273\relax }{figure.caption.6}{}}
-\newlabel{fig: normal273 HOG}{{\caption@xref {fig: normal273 HOG}{ on input line 528}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: normal273 HOG}{{b}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: normal273 LBP}{{\caption@xref {fig: normal273 LBP}{ on input line 534}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: normal273 LBP}{{b}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: normal273 Edge}{{\caption@xref {fig: normal273 Edge}{ on input line 540}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: normal273 Edge}{{b}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: potholes8 filled}{{5c}{11}{potholes8\relax }{figure.caption.6}{}}
-\newlabel{sub@fig: potholes8 filled}{{c}{11}{potholes8\relax }{figure.caption.6}{}}
-\newlabel{fig: potholes8 filled HOG}{{\caption@xref {fig: potholes8 filled HOG}{ on input line 553}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: potholes8 filled HOG}{{c}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: potholes8 filled LBP}{{\caption@xref {fig: potholes8 filled LBP}{ on input line 559}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: potholes8 filled LBP}{{c}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: potholes8 filled Edge}{{\caption@xref {fig: potholes8 filled Edge}{ on input line 565}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: potholes8 filled Edge}{{c}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: potholes22 filled}{{5d}{11}{potholes22\relax }{figure.caption.6}{}}
-\newlabel{sub@fig: potholes22 filled}{{d}{11}{potholes22\relax }{figure.caption.6}{}}
-\newlabel{fig: potholes22 filled HOG}{{\caption@xref {fig: potholes22 filled HOG}{ on input line 578}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: potholes22 filled HOG}{{d}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: potholes22 filled LBP}{{\caption@xref {fig: potholes22 filled LBP}{ on input line 584}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: potholes22 filled LBP}{{d}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{fig: potholes22 filledEdge}{{\caption@xref {fig: potholes22 filledEdge}{ on input line 590}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\newlabel{sub@fig: potholes22 filledEdge}{{d}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces   为数据集添加白色掩码之后的 HOG, LBP, Edge 特征图。 \relax }}{11}{figure.caption.6}\protected@file@percent }
-\newlabel{fig: alldata filled}{{5}{11}{为数据集添加白色掩码之后的 HOG, LBP, Edge 特征图。 \relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}模型的引入}{12}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}集成学习模型}{12}{subsubsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}KNN}{12}{subsubsection.4.3.2}\protected@file@percent }
-\newlabel{eq: knn}{{1}{12}{KNN}{equation.4.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}支持向量机}{12}{subsubsection.4.3.3}\protected@file@percent }
+\newlabel{fig: Red Channel Histogram}{{3a}{8}{Red Channel\relax }{figure.caption.4}{}}
+\newlabel{sub@fig: Red Channel Histogram}{{a}{8}{Red Channel\relax }{figure.caption.4}{}}
+\newlabel{fig: Green Channel Histogram}{{3b}{8}{Green Channel\relax }{figure.caption.4}{}}
+\newlabel{sub@fig: Green Channel Histogram}{{b}{8}{Green Channel\relax }{figure.caption.4}{}}
+\newlabel{fig: Blue Channel Histogram}{{3c}{8}{Blue Channel\relax }{figure.caption.4}{}}
+\newlabel{sub@fig: Blue Channel Histogram}{{c}{8}{Blue Channel\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces   不同颜色通道在 Pothole 和 Normal 的强度。原始数据集是不平衡数据，所以 Normal 类的单通道累积强度会明显高于 Pothole 类，因此我们计算每个分类下的平均通道强度。 \relax }}{8}{figure.caption.4}\protected@file@percent }
+\newlabel{fig: Color Channel}{{3}{8}{不同颜色通道在 Pothole 和 Normal 的强度。原始数据集是不平衡数据，所以 Normal 类的单通道累积强度会明显高于 Pothole 类，因此我们计算每个分类下的平均通道强度。 \relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}去噪}{8}{subsubsection.4.1.4}\protected@file@percent }
+\newlabel{fig: LBP noise}{{4a}{8}{LBP with noise\relax }{figure.caption.5}{}}
+\newlabel{sub@fig: LBP noise}{{a}{8}{LBP with noise\relax }{figure.caption.5}{}}
+\newlabel{fig: HOG noise}{{4b}{8}{HOG with noise\relax }{figure.caption.5}{}}
+\newlabel{sub@fig: HOG noise}{{b}{8}{HOG with noise\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces   LBP 图都会受到显著的噪声影响，HOG 图则相对不那么明显。 \relax }}{8}{figure.caption.5}\protected@file@percent }
+\newlabel{fig: HOG and LBP noise}{{4}{8}{LBP 图都会受到显著的噪声影响，HOG 图则相对不那么明显。 \relax }{figure.caption.5}{}}
+\citation{8516362}
+\citation{rs10091496}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}特征提取}{9}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}边缘特征提取}{9}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}HOG 和 LBP 的特征提取}{9}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}模型的引入}{10}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}集成学习模型}{10}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}KNN}{10}{subsubsection.4.3.2}\protected@file@percent }
+\newlabel{eq: knn}{{1}{10}{KNN}{equation.4.1}{}}
+\newlabel{fig: normal66}{{5a}{11}{normal66\relax }{figure.caption.6}{}}
+\newlabel{sub@fig: normal66}{{a}{11}{normal66\relax }{figure.caption.6}{}}
+\newlabel{fig: normal66 HOG}{{\caption@xref {fig: normal66 HOG}{ on input line 374}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal66 HOG}{{a}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal66 LBP}{{\caption@xref {fig: normal66 LBP}{ on input line 380}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal66 LBP}{{a}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal66 Edge}{{\caption@xref {fig: normal66 Edge}{ on input line 386}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal66 Edge}{{a}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal200}{{5b}{11}{normal200\relax }{figure.caption.6}{}}
+\newlabel{sub@fig: normal200}{{b}{11}{normal200\relax }{figure.caption.6}{}}
+\newlabel{fig: normal200 HOG}{{\caption@xref {fig: normal200 HOG}{ on input line 399}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal200 HOG}{{b}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal200 LBP}{{\caption@xref {fig: normal200 LBP}{ on input line 405}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal200 LBP}{{b}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal200 Edge}{{\caption@xref {fig: normal200 Edge}{ on input line 411}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal200 Edge}{{b}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal300}{{5c}{11}{normal300\relax }{figure.caption.6}{}}
+\newlabel{sub@fig: normal300}{{c}{11}{normal300\relax }{figure.caption.6}{}}
+\newlabel{fig: normal300 HOG}{{\caption@xref {fig: normal300 HOG}{ on input line 424}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal300 HOG}{{c}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal300 LBP}{{\caption@xref {fig: normal300 LBP}{ on input line 430}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal300 LBP}{{c}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: normal300 Edge}{{\caption@xref {fig: normal300 Edge}{ on input line 436}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: normal300 Edge}{{c}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: potholes8}{{5d}{11}{potholes8\relax }{figure.caption.6}{}}
+\newlabel{sub@fig: potholes8}{{d}{11}{potholes8\relax }{figure.caption.6}{}}
+\newlabel{fig: potholes8 HOG}{{\caption@xref {fig: potholes8 HOG}{ on input line 449}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: potholes8 HOG}{{d}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: potholes8 LBP}{{\caption@xref {fig: potholes8 LBP}{ on input line 455}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: potholes8 LBP}{{d}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: potholes8 Edge}{{\caption@xref {fig: potholes8 Edge}{ on input line 461}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: potholes8 Edge}{{d}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: potholes22}{{5e}{11}{potholes22\relax }{figure.caption.6}{}}
+\newlabel{sub@fig: potholes22}{{e}{11}{potholes22\relax }{figure.caption.6}{}}
+\newlabel{fig: potholes22 HOG}{{\caption@xref {fig: potholes22 HOG}{ on input line 474}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: potholes22 HOG}{{e}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: potholes22 LBP}{{\caption@xref {fig: potholes22 LBP}{ on input line 480}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: potholes22 LBP}{{e}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{fig: potholes22 Edge}{{\caption@xref {fig: potholes22 Edge}{ on input line 486}}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\newlabel{sub@fig: potholes22 Edge}{{e}{11}{HOG 和 LBP 的特征提取}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces   不同类别图片对应的 HOG, LBP, Edge 特征图。 \relax }}{11}{figure.caption.6}\protected@file@percent }
+\newlabel{fig: LBP and HOG}{{5}{11}{不同类别图片对应的 HOG, LBP, Edge 特征图。 \relax }{figure.caption.6}{}}
+\newlabel{fig: normal93}{{6a}{12}{normal93\relax }{figure.caption.7}{}}
+\newlabel{sub@fig: normal93}{{a}{12}{normal93\relax }{figure.caption.7}{}}
+\newlabel{fig: normal93 HOG}{{\caption@xref {fig: normal93 HOG}{ on input line 514}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: normal93 HOG}{{a}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: normal93 LBP}{{\caption@xref {fig: normal93 LBP}{ on input line 520}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: normal93 LBP}{{a}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: normal93 Edge}{{\caption@xref {fig: normal93 Edge}{ on input line 526}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: normal93 Edge}{{a}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: normal273}{{6b}{12}{normal273\relax }{figure.caption.7}{}}
+\newlabel{sub@fig: normal273}{{b}{12}{normal273\relax }{figure.caption.7}{}}
+\newlabel{fig: normal273 HOG}{{\caption@xref {fig: normal273 HOG}{ on input line 539}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: normal273 HOG}{{b}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: normal273 LBP}{{\caption@xref {fig: normal273 LBP}{ on input line 545}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: normal273 LBP}{{b}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: normal273 Edge}{{\caption@xref {fig: normal273 Edge}{ on input line 551}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: normal273 Edge}{{b}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: potholes8 filled}{{6c}{12}{potholes8\relax }{figure.caption.7}{}}
+\newlabel{sub@fig: potholes8 filled}{{c}{12}{potholes8\relax }{figure.caption.7}{}}
+\newlabel{fig: potholes8 filled HOG}{{\caption@xref {fig: potholes8 filled HOG}{ on input line 564}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: potholes8 filled HOG}{{c}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: potholes8 filled LBP}{{\caption@xref {fig: potholes8 filled LBP}{ on input line 570}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: potholes8 filled LBP}{{c}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: potholes8 filled Edge}{{\caption@xref {fig: potholes8 filled Edge}{ on input line 576}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: potholes8 filled Edge}{{c}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: potholes22 filled}{{6d}{12}{potholes22\relax }{figure.caption.7}{}}
+\newlabel{sub@fig: potholes22 filled}{{d}{12}{potholes22\relax }{figure.caption.7}{}}
+\newlabel{fig: potholes22 filled HOG}{{\caption@xref {fig: potholes22 filled HOG}{ on input line 589}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: potholes22 filled HOG}{{d}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: potholes22 filled LBP}{{\caption@xref {fig: potholes22 filled LBP}{ on input line 595}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: potholes22 filled LBP}{{d}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{fig: potholes22 filledEdge}{{\caption@xref {fig: potholes22 filledEdge}{ on input line 601}}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\newlabel{sub@fig: potholes22 filledEdge}{{d}{12}{HOG 和 LBP 的特征提取}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces   为数据集添加白色掩码之后的 HOG, LBP, Edge 特征图。 \relax }}{12}{figure.caption.7}\protected@file@percent }
+\newlabel{fig: alldata filled}{{6}{12}{为数据集添加白色掩码之后的 HOG, LBP, Edge 特征图。 \relax }{figure.caption.7}{}}
+\citation{VALKENBORG2023754}
+\citation{TAO20221}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}支持向量机}{13}{subsubsection.4.3.3}\protected@file@percent }
 \newlabel{eq: svm}{{4}{13}{支持向量机}{equation.4.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}MLP算法}{13}{subsubsection.4.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}深度卷积神经网络模型分类器}{13}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}特征融合}{13}{subsubsection.4.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces   结合了SENet Block的InceptionResNetV2的架构。对比原生 InceptionResNetV2 模型，原来的思路打算加载预训练模型，利用迁移学习获取卓越的分类结果，但预训练模型的权重尺寸 $240\times 240$ 的与我们经过处理后的 $640 \times 640$ 的尺寸不符，但过度缩小尺寸损失图像的信息所能带来的对分类器的正向作用，可能会大于迁移学习得到的好处。因此，我们相较于原生模型，除了增加 SENet 模块以外，只对 InceptionResNetV2 添加了一个全局平均池化层和一个全连接层，最后添加了一个二分类的输出层。最后，我们通过实验证明，模型与输出尺寸之间的关系。 \relax }}{14}{figure.caption.7}\protected@file@percent }
-\newlabel{fig: InceptionResNetV2 Architecture}{{6}{14}{结合了SENet Block的InceptionResNetV2的架构。对比原生 InceptionResNetV2 模型，原来的思路打算加载预训练模型，利用迁移学习获取卓越的分类结果，但预训练模型的权重尺寸 $240\times 240$ 的与我们经过处理后的 $640 \times 640$ 的尺寸不符，但过度缩小尺寸损失图像的信息所能带来的对分类器的正向作用，可能会大于迁移学习得到的好处。因此，我们相较于原生模型，除了增加 SENet 模块以外，只对 InceptionResNetV2 添加了一个全局平均池化层和一个全连接层，最后添加了一个二分类的输出层。最后，我们通过实验证明，模型与输出尺寸之间的关系。 \relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}集成学习模型分类器}{14}{subsection.4.5}\protected@file@percent }
+\citation{8314460}
+\citation{rs15112728}
+\citation{NGO20221}
+\citation{9266095}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces   结合了SENet Block的InceptionResNetV2的架构。对比原生 InceptionResNetV2 模型，原来的思路打算加载预训练模型，利用迁移学习获取卓越的分类结果，但预训练模型的权重尺寸 $240\times 240$ 的与我们经过处理后的 $640 \times 640$ 的尺寸不符，但过度缩小尺寸损失图像的信息所能带来的对分类器的正向作用，可能会大于迁移学习得到的好处。因此，我们相较于原生模型，除了增加 SENet 模块以外，只对 InceptionResNetV2 添加了一个全局平均池化层和一个全连接层，最后添加了一个二分类的输出层。最后，我们通过实验证明，模型与输出尺寸之间的关系。 \relax }}{14}{figure.caption.8}\protected@file@percent }
+\newlabel{fig: InceptionResNetV2 Architecture}{{7}{14}{结合了SENet Block的InceptionResNetV2的架构。对比原生 InceptionResNetV2 模型，原来的思路打算加载预训练模型，利用迁移学习获取卓越的分类结果，但预训练模型的权重尺寸 $240\times 240$ 的与我们经过处理后的 $640 \times 640$ 的尺寸不符，但过度缩小尺寸损失图像的信息所能带来的对分类器的正向作用，可能会大于迁移学习得到的好处。因此，我们相较于原生模型，除了增加 SENet 模块以外，只对 InceptionResNetV2 添加了一个全局平均池化层和一个全连接层，最后添加了一个二分类的输出层。最后，我们通过实验证明，模型与输出尺寸之间的关系。 \relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}特征融合}{14}{subsubsection.4.4.1}\protected@file@percent }
+\citation{8496892}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}集成学习模型分类器}{15}{subsection.4.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}模型的求解及优化}{15}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}深度卷积神经网络分类模型训练及优化}{15}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}模型训练}{15}{subsubsection.5.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  配置环境\relax }}{15}{table.caption.8}\protected@file@percent }
-\newlabel{tab: Environment}{{1}{15}{配置环境\relax }{table.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces   我们对原始数据预处理后的数据目录 \relax }}{15}{figure.caption.9}\protected@file@percent }
-\newlabel{fig: dataset content}{{7}{15}{我们对原始数据预处理后的数据目录 \relax }{figure.caption.9}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces  Epoch = 20 下的验证数据集准确率\relax }}{16}{table.caption.10}\protected@file@percent }
-\newlabel{tab: Validation}{{2}{16}{Epoch = 20 下的验证数据集准确率\relax }{table.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  配置环境\relax }}{15}{table.caption.9}\protected@file@percent }
+\newlabel{tab: Environment}{{1}{15}{配置环境\relax }{table.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces  Epoch = 20 下的验证数据集准确率\relax }}{15}{table.caption.11}\protected@file@percent }
+\newlabel{tab: Validation}{{2}{15}{Epoch = 20 下的验证数据集准确率\relax }{table.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces   我们对原始数据预处理后的数据目录 \relax }}{16}{figure.caption.10}\protected@file@percent }
+\newlabel{fig: dataset content}{{8}{16}{我们对原始数据预处理后的数据目录 \relax }{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}优化}{16}{subsubsection.5.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}集成学习模型}{16}{subsection.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}SVM正则化的选择}{16}{subsubsection.5.2.1}\protected@file@percent }
 \newlabel{eq: svm function}{{5}{16}{SVM正则化的选择}{equation.5.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}网络融合策略优化}{16}{subsubsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}模型的评价}{16}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}模型的优点}{16}{subsection.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces   集成学习模型 \relax }}{17}{figure.caption.11}\protected@file@percent }
-\newlabel{fig: Ensemble Classifier}{{8}{17}{集成学习模型 \relax }{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}模型的缺点}{17}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}模型的改进}{17}{subsection.6.3}\protected@file@percent }
+\newlabel{fig: reg1}{{9a}{17}{l1\_l2=0.0\relax }{figure.caption.12}{}}
+\newlabel{sub@fig: reg1}{{a}{17}{l1\_l2=0.0\relax }{figure.caption.12}{}}
+\newlabel{fig: reg2}{{9b}{17}{l1\_l2=0.001\relax }{figure.caption.12}{}}
+\newlabel{sub@fig: reg2}{{b}{17}{l1\_l2=0.001\relax }{figure.caption.12}{}}
+\newlabel{fig: reg3}{{9c}{17}{l1\_l2=0.01\relax }{figure.caption.12}{}}
+\newlabel{sub@fig: reg3}{{c}{17}{l1\_l2=0.01\relax }{figure.caption.12}{}}
+\newlabel{fig: reg4}{{9d}{17}{l1=0.01\relax }{figure.caption.12}{}}
+\newlabel{sub@fig: reg4}{{d}{17}{l1=0.01\relax }{figure.caption.12}{}}
+\newlabel{fig: reg5}{{9e}{17}{l2=0.01\relax }{figure.caption.12}{}}
+\newlabel{sub@fig: reg5}{{e}{17}{l2=0.01\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces   不同的L1，L2正则值的训练曲线和准确率。 \relax }}{17}{figure.caption.12}\protected@file@percent }
+\newlabel{fig: regular}{{9}{17}{不同的L1，L2正则值的训练曲线和准确率。 \relax }{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}网络融合策略优化}{18}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces   集成学习模型 \relax }}{18}{figure.caption.13}\protected@file@percent }
+\newlabel{fig: Ensemble Classifier}{{10}{18}{集成学习模型 \relax }{figure.caption.13}{}}
+\newlabel{fig: knn}{{11a}{18}{knn\relax }{figure.caption.14}{}}
+\newlabel{sub@fig: knn}{{a}{18}{knn\relax }{figure.caption.14}{}}
+\newlabel{fig: svm}{{11b}{18}{svm\relax }{figure.caption.14}{}}
+\newlabel{sub@fig: svm}{{b}{18}{svm\relax }{figure.caption.14}{}}
+\newlabel{fig: rf}{{11c}{18}{rf\relax }{figure.caption.14}{}}
+\newlabel{sub@fig: rf}{{c}{18}{rf\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces   KNN, SVM, RF模型的评分 \relax }}{18}{figure.caption.14}\protected@file@percent }
+\newlabel{fig: Ensemble Val}{{11}{18}{KNN, SVM, RF模型的评分 \relax }{figure.caption.14}{}}
 \bibstyle{unsrt}
 \bibdata{reference}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}模型的推广}{18}{subsection.6.4}\protected@file@percent }
-\newlabel{LastPage}{{}{18}{}{page.18}{}}
-\xdef\lastpage@lastpage{18}
-\xdef\lastpage@lastpageHy{18}
-\gdef \@abspage@last{18}
+\bibcite{DONG2022104914}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {6}模型的评价}{19}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}模型的优点}{19}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}模型的缺点}{19}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}模型的改进}{19}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}模型的推广}{19}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}附录}{19}{section.7}\protected@file@percent }
+\bibcite{rs13020200}{2}
+\bibcite{8516362}{3}
+\bibcite{rs10091496}{4}
+\bibcite{VALKENBORG2023754}{5}
+\bibcite{TAO20221}{6}
+\bibcite{8314460}{7}
+\bibcite{rs15112728}{8}
+\bibcite{NGO20221}{9}
+\bibcite{9266095}{10}
+\bibcite{8496892}{11}
+\newlabel{LastPage}{{}{20}{}{page.20}{}}
+\xdef\lastpage@lastpage{20}
+\xdef\lastpage@lastpageHy{20}
+\gdef \@abspage@last{20}
